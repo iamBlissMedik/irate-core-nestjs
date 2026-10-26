@@ -1,0 +1,9 @@
+node_modules/
+dist/
+coverage/
+src/generated/
+*.tsbuildinfo
+.env
+.env.test
+*.log
+.DS_Store

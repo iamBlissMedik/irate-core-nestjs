@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "import", "vitest"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "rules": {
+    "typescript/no-explicit-any": "error",
+    "no-console": "error",
+    "import/no-cycle": "error",
+    "unicorn/no-null": "off",
+    "typescript/no-extraneous-class": ["warn", { "allowWithDecorator": true }],
+    "no-underscore-dangle": ["warn", { "allow": ["_sum", "_count", "_all", "_avg", "_min", "_max"] }],
+    "vitest/expect-expect": ["error", { "assertFunctionNames": ["expect", "**.expect"] }]
+  },
+  "overrides": [
+    {
+      "files": ["test/**/*.ts", "src/**/*.spec.ts"],
+      "rules": { "unicorn/consistent-function-scoping": "off" }
+    }
+  ],
+  "env": {
+    "node": true
+  },
+  "ignorePatterns": ["src/generated/**", "dist/**", "coverage/**"]
+}
